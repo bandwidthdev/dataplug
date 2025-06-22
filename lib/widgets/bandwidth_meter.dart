@@ -13,11 +13,11 @@ class BandwidthMeter extends StatelessWidget {
         LinearProgressIndicator(
           value: usage / max,
           minHeight: 12,
-          backgroundColor: Colors.grey[300],
-          color: Colors.blue,
+          backgroundColor: Colors.grey[300], // These colors could be const if not from theme
+          color: Colors.blue, // These colors could be const if not from theme
         ),
-        SizedBox(height: 4),
-        Text(
+        const SizedBox(height: 4),
+        Text( // Text content is dynamic
           '${usage.toStringAsFixed(1)} Mbps / ${max.toStringAsFixed(1)} Mbps',
         ),
       ],

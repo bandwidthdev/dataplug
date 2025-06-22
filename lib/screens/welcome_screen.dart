@@ -16,37 +16,37 @@ class WelcomeScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset('assets/logo.png', height: 120),
-                SizedBox(height: 32),
+                Image.asset('assets/logo.png', height: 120), // Assuming logo.png won't change often, this is fine. Const cannot be applied directly if path is dynamic, but here it's static.
+                const SizedBox(height: 32),
                 Text(
                   'Welcome to DataPlug',
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
-                SizedBox(height: 16),
-                Text(
+                const SizedBox(height: 16),
+                const Text(
                   'Peer-to-peer bandwidth sharing for everyone.',
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 ElevatedButton.icon(
-                  icon: Icon(Icons.wifi),
-                  label: Text('Share My Bandwidth'),
+                  icon: const Icon(Icons.wifi),
+                  label: const Text('Share My Bandwidth'),
                   style: ElevatedButton.styleFrom(
-                    minimumSize: Size.fromHeight(48),
+                    minimumSize: const Size.fromHeight(48),
                   ),
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => SharerDashboard()),
+                      MaterialPageRoute(builder: (_) => const SharerDashboard()),
                     );
                   },
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 ElevatedButton.icon(
-                  icon: Icon(Icons.search),
-                  label: Text('Find Nearby Sharers'),
+                  icon: const Icon(Icons.search),
+                  label: const Text('Find Nearby Sharers'),
                   style: ElevatedButton.styleFrom(
-                    minimumSize: Size.fromHeight(48),
+                    minimumSize: const Size.fromHeight(48),
                   ),
                   onPressed: () {
                     Navigator.push(

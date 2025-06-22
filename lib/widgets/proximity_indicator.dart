@@ -8,9 +8,9 @@ class ProximityIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(Icons.location_on, color: Colors.blue, size: 18),
-        SizedBox(width: 4),
-        Text('$distanceMeters m away', style: TextStyle(fontSize: 12)),
+        const Icon(Icons.location_on, color: Colors.blue, size: 18),
+        const SizedBox(width: 4),
+        Text('$distanceMeters m away', style: const TextStyle(fontSize: 12)), // Text content is dynamic
       ],
     );
   }

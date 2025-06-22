@@ -13,26 +13,26 @@ class SettingsScreen extends StatelessWidget {
             leading: const Icon(Icons.language),
             title: const Text('Language'),
             subtitle: const Text('English / Luganda'),
-            trailing: Switch(value: false, onChanged: (v) {}), // Placeholder
+            trailing: Switch(value: false, onChanged: (v) {}), // Placeholder, value will be dynamic
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.accessibility),
             title: const Text('High Contrast'),
-            trailing: Switch(value: false, onChanged: (v) {}), // Placeholder
+            trailing: Switch(value: false, onChanged: (v) {}), // Placeholder, value will be dynamic
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.brightness_6),
             title: const Text('Theme'),
             subtitle: const Text('Light / Dark'),
-            trailing: Switch(
+            trailing: Switch( // Placeholder, value will be dynamic
               value: false,
               onChanged: (v) {},
-            ), // Placeholder for theme switch
+            ),
             onTap: () {},
           ),
-          Divider(),
+          const Divider(),
           ListTile(
             leading: const Icon(Icons.person),
             title: const Text('Profile'),

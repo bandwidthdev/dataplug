@@ -4,31 +4,10 @@ import '../widgets/speed_tier_badge.dart';
 import '../widgets/status_card.dart';
 import '../widgets/trust_score_indicator.dart';
 import '../widgets/connection_animation.dart';
-
-class Sharer {
-  final String name;
-  final String speed;
-  final double trust;
-  final int distance;
-  final int slotsAvailable;
-  final int slotsTotal;
-  final bool online;
-  final String lastSeen;
-
-  Sharer({
-    required this.name,
-    required this.speed,
-    required this.trust,
-    required this.distance,
-    required this.slotsAvailable,
-    required this.slotsTotal,
-    required this.online,
-    required this.lastSeen,
-  });
-}
+import '../models/sharer.dart'; // Import the moved Sharer model
 
 class ReceiverDashboard extends StatefulWidget {
-  const ReceiverDashboard({super.key});
+  const ReceiverDashboard({super.key}); // Ensure this is const if possible
 
   @override
   State<ReceiverDashboard> createState() => _ReceiverDashboardState();
@@ -38,7 +17,7 @@ class _ReceiverDashboardState extends State<ReceiverDashboard> {
   bool isConnecting = false;
   String connectionState = '';
   final List<Sharer> sharers = [
-    Sharer(
+    const Sharer( // Added const
       name: 'Sharer #1',
       speed: 'Good',
       trust: 0.85,
@@ -48,7 +27,7 @@ class _ReceiverDashboardState extends State<ReceiverDashboard> {
       online: true,
       lastSeen: 'Online now',
     ),
-    Sharer(
+    const Sharer( // Added const
       name: 'Sharer #2',
       speed: 'Medium',
       trust: 0.6,
@@ -92,16 +71,16 @@ class _ReceiverDashboardState extends State<ReceiverDashboard> {
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: _refreshSharers,
-            tooltip: 'Refresh',
+            tooltip: 'Refresh', // This can be const if desired, but often not done for tooltips
           ),
         ],
       ),
       body: isConnecting
-          ? Center(child: ConnectionAnimation(state: connectionState))
+          ? Center(child: ConnectionAnimation(state: connectionState)) // state is dynamic
           : sharers.isEmpty
-          ? Center(
-              child: StatusCard(
-                status: 'Offline',
+          ? const Center( // If StatusCard can be const and its message is fixed or from a const source
+              child: StatusCard( // This specific message isn't const, so StatusCard call cannot be const
+                status: 'Offline', // This could be const if StatusCard constructor is const
                 message:
                     'No live sharers found. Try moving closer to campus or refreshing.',
               ),
@@ -114,25 +93,25 @@ class _ReceiverDashboardState extends State<ReceiverDashboard> {
                 return Card(
                   margin: const EdgeInsets.only(bottom: 16),
                   child: ListTile(
-                    leading: SpeedTierBadge(tier: sharer.speed),
+                    leading: SpeedTierBadge(tier: sharer.speed), // tier is dynamic
                     title: Row(
                       children: [
-                        Text(sharer.name),
+                        Text(sharer.name), // name is dynamic
                         const SizedBox(width: 8),
-                        TrustScoreIndicator(score: sharer.trust),
+                        TrustScoreIndicator(score: sharer.trust), // score is dynamic
                       ],
                     ),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ProximityIndicator(distanceMeters: sharer.distance),
-                        Text(
+                        ProximityIndicator(distanceMeters: sharer.distance), // distance is dynamic
+                        Text( // content is dynamic
                           'Slots: ${sharer.slotsAvailable}/${sharer.slotsTotal}',
                         ),
-                        Text(
+                        Text( // content and style are dynamic
                           sharer.lastSeen,
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 12, // This could be const TextStyle(fontSize:12) and color applied separately if needed
                             color: sharer.online ? Colors.green : Colors.grey,
                           ),
                         ),
@@ -145,7 +124,7 @@ class _ReceiverDashboardState extends State<ReceiverDashboard> {
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(90, 40),
                       ),
-                      child: const Text('Connect'),
+                      child: const Text('Connect'), // Text is const
                     ),
                     isThreeLine: true,
                   ),
