@@ -8,26 +8,29 @@ class ConnectionAnimation extends StatelessWidget {
   Widget build(BuildContext context) {
     if (state == 'connecting') {
       return Column(
+        mainAxisSize: MainAxisSize.min, // Added for potentially better layout
         children: [
-          CircularProgressIndicator(),
-          SizedBox(height: 12),
-          Text('Connecting...'),
+          CircularProgressIndicator(), // Not const
+          const SizedBox(height: 12),
+          const Text('Connecting...'),
         ],
       );
     } else if (state == 'connected') {
       return Column(
+        mainAxisSize: MainAxisSize.min, // Added for potentially better layout
         children: [
-          Icon(Icons.check_circle, color: Colors.green, size: 48),
-          SizedBox(height: 12),
-          Text('Connected!'),
+          const Icon(Icons.check_circle, color: Colors.green, size: 48),
+          const SizedBox(height: 12),
+          const Text('Connected!'),
         ],
       );
-    } else {
+    } else { // Assuming 'error' or other default
       return Column(
+        mainAxisSize: MainAxisSize.min, // Added for potentially better layout
         children: [
-          Icon(Icons.error, color: Colors.red, size: 48),
-          SizedBox(height: 12),
-          Text('Connection Failed'),
+          const Icon(Icons.error, color: Colors.red, size: 48),
+          const SizedBox(height: 12),
+          const Text('Connection Failed'),
         ],
       );
     }

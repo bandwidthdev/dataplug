@@ -60,17 +60,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(page.icon, size: 80, color: Theme.of(context).primaryColor),
+              Icon(page.icon, size: 80, color: Theme.of(context).primaryColor), // Icon and color are dynamic based on page
               const SizedBox(height: 32),
               Text(
                 page.title,
-                style: Theme.of(context).textTheme.headlineMedium,
+                style: Theme.of(context).textTheme.headlineMedium, // Style is from theme, text is dynamic
               ),
               const SizedBox(height: 16),
-              Text(page.description, textAlign: TextAlign.center),
+              Text(page.description, textAlign: TextAlign.center), // Text is dynamic
               const SizedBox(height: 40),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center, // Fine as is
                 children: List.generate(
                   _pages.length,
                   (i) => Container(

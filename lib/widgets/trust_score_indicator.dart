@@ -11,11 +11,11 @@ class TrustScoreIndicator extends StatelessWidget {
         : (score > 0.4 ? Colors.orange : Colors.red);
     return Row(
       children: [
-        Icon(Icons.verified_user, color: color, size: 20),
-        SizedBox(width: 4),
+        Icon(Icons.verified_user, color: color, size: 20), // Color is dynamic
+        const SizedBox(width: 4),
         Text(
-          'Trust: ${(score * 100).toInt()}%',
-          style: TextStyle(color: color, fontWeight: FontWeight.bold),
+          'Trust: ${(score * 100).toInt()}%', // Text content is dynamic
+          style: TextStyle(color: color, fontWeight: FontWeight.bold), // Color is dynamic
         ),
       ],
     );

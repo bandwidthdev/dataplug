@@ -34,11 +34,11 @@ class VPNStatusIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(icon, color: color, size: 32),
-        SizedBox(width: 12),
+        Icon(icon, color: color, size: 32), // Icon and color are dynamic
+        const SizedBox(width: 12),
         Text(
-          status,
-          style: TextStyle(
+          status, // Text content is dynamic
+          style: TextStyle( // Color is dynamic
             color: color,
             fontWeight: FontWeight.bold,
             fontSize: 18,

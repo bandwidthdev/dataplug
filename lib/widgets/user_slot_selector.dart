@@ -15,16 +15,16 @@ class UserSlotSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text('Slots:'),
+        const Text('Slots:'),
         IconButton(
-          icon: Icon(Icons.remove),
+          icon: const Icon(Icons.remove),
           onPressed: currentSlots > 1
               ? () => onChanged(currentSlots - 1)
               : null,
         ),
-        Text('$currentSlots / $maxSlots'),
+        Text('$currentSlots / $maxSlots'), // Dynamic text
         IconButton(
-          icon: Icon(Icons.add),
+          icon: const Icon(Icons.add),
           onPressed: currentSlots < maxSlots
               ? () => onChanged(currentSlots + 1)
               : null,
