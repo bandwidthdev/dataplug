@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1045370403510",
+    "project_id": "bandwidth-ec31b",
+    "storage_bucket": "bandwidth-ec31b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045370403510:android:6aa1526106a91e99bf0417",
+        "android_client_info": {
+          "package_name": "com.codephoria.bandwidthsahre"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDMIUWa2V-8Cib3bCo3niWUN_8GK3UGo4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
